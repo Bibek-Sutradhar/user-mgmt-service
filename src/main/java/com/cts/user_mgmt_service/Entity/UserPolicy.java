@@ -10,6 +10,7 @@ public class UserPolicy {
 
     @Id
     @Column(name = "POLICY_ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer policyId;
 
     @ManyToOne(fetch = FetchType.EAGER)

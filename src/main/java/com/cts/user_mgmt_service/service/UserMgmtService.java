@@ -141,4 +141,16 @@ public class UserMgmtService {
         System.out.println("users is ::" + users);
         userRepository.save(users);
     }
+
+    public UserPolicy addUserPolicy(String policyName, String policyEndDate,Integer amountPaid, Integer userId, String valid){
+        UserPolicy userPolicy = new UserPolicy();
+        Users user = getUserById(userId);
+        userPolicy.setPolicyName(policyName);
+        userPolicy.setAmtPaid(amountPaid);
+        userPolicy.setPolicyEndDate(policyEndDate);
+        userPolicy.setValid(valid);
+        userPolicy.setUsers(user);
+
+        return userPolicyRepository.save(userPolicy);
+    }
 }
